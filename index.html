@@ -95,11 +95,11 @@
 
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Laxus�ĺ�����">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Laxus�ĺ�����">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Laxus�ĺ�����">
 
 
 
@@ -134,7 +134,7 @@
 
 
 
-  <title>Hexo</title>
+  <title>Laxus�ĺ�����</title>
   
 
 
@@ -172,12 +172,12 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Laxus�ĺ�����</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">I can do all things</p>
       
   </div>
 
@@ -259,328 +259,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/19/项目分层解析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/19/项目分层解析/" itemprop="url">Unbenannt</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-19T23:00:12+08:00">
-                2017-11-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="项目分层解析"><a href="#项目分层解析" class="headerlink" title="项目分层解析"></a>项目分层解析</h1><p><img src="http://img.blog.csdn.net/20170904154405096?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="项目分层"></p>
-<h2 id="整体分层结构"><a href="#整体分层结构" class="headerlink" title="整体分层结构"></a>整体分层结构</h2><p>整体分为app和base两个层，app层作为项目的业务层，里面所有的分包都和当前业务相关。base层作为项目的框架层。业务与框架层级分离的好处：</p>
-<ol>
-<li>可以让我们更专注于业务的开发</li>
-<li>可以快速集成新的项目</li>
-<li>方便每个项目在原有框架上做快速的更新迭代</li>
-</ol>
-<h2 id="业务层分层解析"><a href="#业务层分层解析" class="headerlink" title="业务层分层解析"></a>业务层分层解析</h2><p>业务层内的基本分包是固定结构，因为每个项目都会有这些元素。因为富文本编辑器在互动讨论项目是重点，所以这里加上了一个editor包来统一管理。下面一一来分析一下包结构。</p>
-<ul>
-<li><p>adapter包里主要盛放不同列表的适配器，里面包含单类型列表适配器、多类型列表适配器和viewpager适配器等多种。</p>
-</li>
-<li><p>customview包主要盛放与业务相关的自定义控件，其中包含自写的控件和基于开源二次编辑的控件，还有部分开源控件从业务层的build.gradle中直接引入。可以把每个项目引入和编写的自定义控件做一个总结和划分，统一存到一个git仓库中。</p>
-</li>
-<li><p>dialog包主要盛放与业务相关的弹框控件，有相同业务场景的弹框可以将业务写在内部然后提供接口调用统一返回处理。</p>
-</li>
-<li><p>entity包主要盛放业务相关的实体类，一般有两种：一种是与后端接口通讯同步的实体，另一种是处理逻辑用的自写实体。建议在系统设计阶段与后端小伙伴一起将实体继承关系梳理好，否则会导致多个大同小异实体存在的结果。</p>
-</li>
-<li><p>network包这里是业务层的network主要放两种类，一种是网络配置类用来定义接口地址和文件服务器地址，另一种是API接口类，用来记录该接口地址下的所有API。</p>
-</li>
-<li><p>receiver包主要盛放广播接收器，里面会有推送相关的接收类和自写的广播接收类。</p>
-</li>
-<li><p>utils包里主要盛放业务相关的各种工具类，比如常量类、UI工具类、图片工具类、正则工具类等。</p>
-</li>
-<li><p>base包里是业务基础类，里面包含BaseActivity、BaseFragment、MListFragment、TRecyclerView和MVP结构的三层抽象。其中BaseActivity是框架层FrameBaseActivity的子类，在这里可以写一些业务相关的统一调用：例如SharedPreferences的实例化和竖屏控制等。还有一些每个Activity都要调用的统一方法的抽象，为了保证名称一致性。BaseFragment同上。MlistFragment是继承于BaseFragment，用于统一列表fragment的控制。TRecyclerView是基于业务的下拉列表封装类，可以用它快速编写下拉列表，这个我会令起一篇详细描述。</p>
-</li>
-<li><p>business包里包含了所有的业务活动类，在里面可根据业务场景的不同具体分析处理，举例：互动讨论项目分为学生端和教师端，我可以在分别建包teabusiness作为老师业务、stubusiness作为学生业务，然后把老师学生共用的业务拆分出来做公有业务。（ps:在做互动的时候其实是先做的老师端后做的学生端，老师端有大部分公用业务，学生端里面只是把学生独有的拿了出来）</p>
-<p><strong>综上：建议在新建项目处理业务分包的时候保留固有结构，方便团队规范化统一。</strong></p>
-</li>
-</ul>
-<h2 id="框架层分层解析"><a href="#框架层分层解析" class="headerlink" title="框架层分层解析"></a>框架层分层解析</h2><p>框架层中包含适配器框架、网络框架、工具包和两个框架级别的封装类。下面一一来进行说明。</p>
-<ul>
-<li>适配器框架是基于RecycleView适配器的多功能封装，主要特点是支持下拉刷新、快速添加header、footer、多层级嵌套、多类型展示等功能。</li>
-<li>网络框架是retrofit+okhttp+rxjava结构封装而成，主要特点是简化网络请求、自动化处理返回结果、token拦截处理、上传下载监听等。</li>
-<li>utils工具包中包含Activity管理类、异常处理类、网络工具类、权限管理类等基本框架级工具类。</li>
-<li>FrameBaseActivity框架Activity类继承RxAppCompatActivity来实现网络请求时生命周期的监听管理，内部onCreateView中实现了百分比布局的计算，来适配不同尺寸的机型屏幕。其余提供了一些抽象方法供业务层基础类来调用。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/19/编辑器--多功能输入框重构/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/19/编辑器--多功能输入框重构/" itemprop="url">Unbenannt</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-19T23:00:12+08:00">
-                2017-11-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="编辑器–多功能输入框重构"><a href="#编辑器–多功能输入框重构" class="headerlink" title="编辑器–多功能输入框重构"></a>编辑器–多功能输入框重构</h1><h2 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h2><ol>
-<li>在创建富文本内容区域需要多功能输入框<br><img src="http://img.blog.csdn.net/20170907160208226?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-<li>在评论页需要展示评论输入框<br><img src="http://img.blog.csdn.net/20170907160126150?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><h2 id="现有问题"><a href="#现有问题" class="headerlink" title="现有问题"></a>现有问题</h2></li>
-<li>当前类达到了1000行…</li>
-<li>嵌套页面需要太多控制功能栏显隐操作<br><img src="http://img.blog.csdn.net/20170907160421750?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-<li>编辑器回调方法中也需要控制显隐<br><img src="http://img.blog.csdn.net/20170907160429776?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-<li>布局嵌套过深不易控制<br><img src="http://img.blog.csdn.net/20170907160437204?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-<li>代码中过多findviewbyid和注册监听不美观，导致类行数过多</li>
-<li>所有多媒体功能都放在InputView这个类里没有做抽象，导致类行数过多</li>
-<li>评论上传图片和请求不应该放在inputView里<h2 id="优化方案"><a href="#优化方案" class="headerlink" title="优化方案"></a>优化方案</h2></li>
-</ol>
-<p><img src="http://img.blog.csdn.net/20170907160517741?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p>优化逻辑的核心思想就是面向对象基本特征：封装、继承、多态。我打算从四个方面入手优化重构，组件的子布局拆分，各个功能的抽取例如音频视频这种都可以独立成类来管理，然后就是基类抽象和业务抽象，可以按富文本输入框和评论输入框这两个类型完全剥离开独立出来，再按照业务类型区分是主题或写作来控制富文本输入框具体内容。</p>
-<h2 id="布局拆分"><a href="#布局拆分" class="headerlink" title="布局拆分"></a>布局拆分</h2><h3 id="布局按功能模块抽取"><a href="#布局按功能模块抽取" class="headerlink" title="布局按功能模块抽取"></a>布局按功能模块抽取</h3><p>首先按照功能模块把所有view从整体布局中进行抽取，结构如下：</p>
-<ul>
-<li><p>layout_easybar 评论功能栏</p>
-</li>
-<li><p>layout_richbar 富文本功能栏</p>
-</li>
-<li><p>layout_easybar_func 评论功能布局</p>
-</li>
-<li><p>layout_record_func 录音功能整体布局</p>
-<ul>
-<li><p>layout_record_ready 录音准备布局</p>
-</li>
-<li><p>layout_record_go 录音开始布局</p>
-</li>
-<li><p>layout_record_over 录音结束布局</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="结构梳理"><a href="#结构梳理" class="headerlink" title="结构梳理"></a>结构梳理</h3><p>来分析一下两个类型输入框的结构，从整体来看都是一致的：上层是功能栏，中间有一个像素的线，下面是一个功能区域，用来盛放表情和音频。后面可以用代码代替，省去xml布局。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--功能栏--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/ll_input_bar"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">View</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"1px"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:background</span>=<span class="string">"@color/colorGray7"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--功能区域--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">RelativeLayout</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:id</span>=<span class="string">"@+id/ll_input_rich_box"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="功能抽取"><a href="#功能抽取" class="headerlink" title="功能抽取"></a>功能抽取</h2><p>首先来梳理一下功能栏上的功能按钮，一共有表情、图片、音频、视频四种，表情和图片已做了封装处理，音频和视频占据了大量声明和逻辑的代码，我们需要对他俩进行封装。还有一些纯功能的方法我们需要进行抽取，例如软键盘的显隐控制。</p>
-<ul>
-<li>音频功能类AudioFunc，在类的内部对音频的三个页面进行控制，并用ButterKnife将声明优化。</li>
-<li>视频功能类VideoFunc，在类的内部进行回调和压缩的处理，和业务相关的抽取成接口抛出去。</li>
-<li>软键盘控制类InputTools,  将控制类方法补充完整，可做成通用工具类使用。</li>
-</ul>
-<h2 id="基类抽象"><a href="#基类抽象" class="headerlink" title="基类抽象"></a>基类抽象</h2><p>因为两个类型输入框大体结构是一样的，所以我们可以在基类将总体布局定义好，然后抽取他们共用的代码部分例如功能盒子区域的显示和隐藏，在功能盒子中初始化音频和表情布局，设置统一的监听事件。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 初始化父容器</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initParent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    setOrientation(VERTICAL);</span><br><span class="line">    llInputBar = <span class="keyword">new</span> LinearLayout(activity);</span><br><span class="line">    llInputBar.setLayoutParams(<span class="keyword">new</span> LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));</span><br><span class="line">    addView(llInputBar);<span class="comment">//添加功能栏外布局</span></span><br><span class="line">    View vLine = <span class="keyword">new</span> View(activity);</span><br><span class="line">    vLine.setBackgroundResource(R.color.colorGray7);</span><br><span class="line">    vLine.setLayoutParams(<span class="keyword">new</span> LayoutParams(LayoutParams.MATCH_PARENT, <span class="number">1</span>));</span><br><span class="line">    addView(vLine);<span class="comment">//添加线</span></span><br><span class="line">    llInputBox = <span class="keyword">new</span> RelativeLayout(activity);</span><br><span class="line">    llInputBox.setLayoutParams(<span class="keyword">new</span> AutoRelativeLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));</span><br><span class="line">    addView(llInputBox);<span class="comment">//添加盒子布局</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 初始化功能</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initFunc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    initBar();<span class="comment">//初始化功能栏</span></span><br><span class="line">    initEmoji();<span class="comment">//表情布局</span></span><br><span class="line">    initRecord();<span class="comment">//音频布局</span></span><br><span class="line">    setBoxChildGone();<span class="comment">//初始化将盒子内布局隐藏</span></span><br><span class="line">    getKeyBoardHeight();<span class="comment">//获取键盘高度</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 具体功能栏由子类填充</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">initBar</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-<h2 id="子类实现"><a href="#子类实现" class="headerlink" title="子类实现"></a>子类实现</h2><p>通过上述步骤后子类实现就超级简单了，经过重构后，只需要关注于bar上的点击事件的实现就好了，下面是富文本输入框的编辑器的点击事件，</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@OnClick</span>(&#123;R.id.button_emoji, R.id.button_image, R.id.button_voice, R.id.button_video, R.id.button_keyboard&#125;)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (view.getId()) &#123;</span><br><span class="line">        <span class="keyword">case</span> R.id.button_emoji:</span><br><span class="line">            setVisible(flInputEmoji);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> R.id.button_image:</span><br><span class="line">            PictureConfig.getInstance().init(ImageOptions.getImageOption()).openPhoto(activity, imageCallback);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> R.id.button_voice:</span><br><span class="line">            setVisible(llInputRecord);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> R.id.button_video:</span><br><span class="line">            videoFunc.clickVideo(view);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> R.id.button_keyboard:</span><br><span class="line">            clickKeyboard();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这个是两个子类各自的类结构，通篇超不过100行。</p>
-<p><img src="http://img.blog.csdn.net/20170907160552971?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<p><img src="http://img.blog.csdn.net/20170907160559197?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
-<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>在manifest注册文件中需要把要调用到富文本输入框的地方增加<code>android:windowSoftInputMode=&quot;adjustResize&quot;</code>将当前Activity调整为弹起时重新调整布局大小，来弹出输入框。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/19/Data binding 入坑笔记一入门篇/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -590,7 +268,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Laxus�ĺ�����">
     </span>
 
     
@@ -740,7 +418,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Laxus�ĺ�����">
     </span>
 
     
@@ -879,7 +557,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Laxus�ĺ�����">
     </span>
 
     
@@ -1065,7 +743,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Laxus�ĺ�����">
     </span>
 
     
@@ -1202,7 +880,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Laxus�ĺ�����">
     </span>
 
     
@@ -1327,7 +1005,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Laxus�ĺ�����">
     </span>
 
     
@@ -1678,7 +1356,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
