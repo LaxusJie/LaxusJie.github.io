@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troublesho">
+  <meta name="description" content="Data binding 入坑笔记一入门篇数据绑定已经推出两年多的时间了，是时候下一波水了，边学习边记录一下实战步骤以及踩过得一些坑。 0. 什么是Data bindingData Binding，顾名思义，数据绑定，是Google对MVVM在Android上的一种实现，可以直接绑定数据到xml中，并实现自动刷新。现在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/11/19/hello-world/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/11/19/Data binding 入坑笔记一入门篇/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-11-19T14:13:12.701Z">
+<meta property="og:description" content="Data binding 入坑笔记一入门篇数据绑定已经推出两年多的时间了，是时候下一波水了，边学习边记录一下实战步骤以及踩过得一些坑。 0. 什么是Data bindingData Binding，顾名思义，数据绑定，是Google对MVVM在Android上的一种实现，可以直接绑定数据到xml中，并实现自动刷新。现在最新的版本还支持双向绑定，尽管使用场景不是那么多。 Data Binding可以">
+<meta property="og:updated_time" content="2017-11-18T00:47:16.147Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="Data binding 入坑笔记一入门篇数据绑定已经推出两年多的时间了，是时候下一波水了，边学习边记录一下实战步骤以及踩过得一些坑。 0. 什么是Data bindingData Binding，顾名思义，数据绑定，是Google对MVVM在Android上的一种实现，可以直接绑定数据到xml中，并实现自动刷新。现在最新的版本还支持双向绑定，尽管使用场景不是那么多。 Data Binding可以">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -145,35 +145,42 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Data binding 入坑笔记一入门篇" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hello World
-    </h1>
-  
-
-        
-        <a href="/2017/11/19/hello-world/" class="archive-article-date">
-  	<time datetime="2017-11-19T14:13:12.701Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="Data-binding-入坑笔记一入门篇"><a href="#Data-binding-入坑笔记一入门篇" class="headerlink" title="Data binding 入坑笔记一入门篇"></a>Data binding 入坑笔记一入门篇</h1><p>数据绑定已经推出两年多的时间了，是时候下一波水了，边学习边记录一下实战步骤以及踩过得一些坑。</p>
+<h2 id="0-什么是Data-binding"><a href="#0-什么是Data-binding" class="headerlink" title="0. 什么是Data binding"></a>0. 什么是Data binding</h2><p>Data Binding，顾名思义，数据绑定，是Google对MVVM在Android上的一种实现，可以直接绑定数据到xml中，并实现自动刷新。现在最新的版本还支持双向绑定，尽管使用场景不是那么多。</p>
+<p>Data Binding可以提升开发效率（节省很多以往需要手写的java代码），性能高（甚至超越手写代码），功能强（强大的表达式支持）。</p>
+<h2 id="1-准备环境"><a href="#1-准备环境" class="headerlink" title="1. 准备环境"></a>1. 准备环境</h2><p>保证接入的项目gradle插件版本不低于 <strong>1.5.0-alpha1</strong>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">classpath &apos;com.android.tools.build:gradle:1.5.0&apos;</span><br></pre></td></tr></table></figure>
+<p>在对应模块（Module）的build.gradle文件添加如下配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dataBinding &#123;</span><br><span class="line">    enabled true</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-布局文件"><a href="#2-布局文件" class="headerlink" title="2.布局文件"></a>2.布局文件</h2><p>要使用Data Binding首先xml文件有了以下变化，他的根节点变成了layout，里面包含一个data节点和原根节点LinearLayout，其中这个data是用来绑定数据的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span><br><span class="line">&lt;layout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;</span><br><span class="line">   &lt;data&gt;</span><br><span class="line">       &lt;variable name=&quot;user&quot; type=&quot;com.example.User&quot;/&gt;</span><br><span class="line">   &lt;/data&gt;</span><br><span class="line">   &lt;!--这是原根节点--&gt;</span><br><span class="line">   &lt;LinearLayout</span><br><span class="line">       android:orientation=&quot;vertical&quot;</span><br><span class="line">       android:layout_width=&quot;match_parent&quot;</span><br><span class="line">       android:layout_height=&quot;match_parent&quot;&gt;</span><br><span class="line">       &lt;TextView android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">           android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">           android:text=&quot;@&#123;user.firstName&#125;&quot;/&gt;</span><br><span class="line">       &lt;TextView android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">           android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">           android:text=&quot;@&#123;user.lastName&#125;&quot;/&gt;</span><br><span class="line">   &lt;/LinearLayout&gt;</span><br><span class="line">&lt;/layout&gt;</span><br></pre></td></tr></table></figure>
+<p>在data内可以利用variable声明变量，里面有两个属性name和type，name是变量的名字，type是变量的类型。(这里的User是一个实体类，下面说)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;data&gt;</span><br><span class="line">    &lt;variable name=&quot;user&quot; type=&quot;com.example.User&quot;/&gt;</span><br><span class="line">&lt;/data&gt;</span><br></pre></td></tr></table></figure>
+<p>也可以把类型提出来用import导入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;data&gt;</span><br><span class="line">    &lt;import type=&quot;com.example.User&quot; /&gt;</span><br><span class="line">    &lt;variable name=&quot;user&quot; type=&quot;User&quot; /&gt;</span><br><span class="line">&lt;/data&gt;</span><br></pre></td></tr></table></figure>
+<p>基础类型可以直接使用，无需import</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;variable name=&quot;userName&quot; type=&quot;String&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>配置好布局文件后，IDE会根据xml文件的名称自动生成一个DataBinding类用于数据绑定，命名规则如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">activity_main.xml -&gt; ActivityMainBinding</span><br></pre></td></tr></table></figure>
+<h2 id="3-数据对象"><a href="#3-数据对象" class="headerlink" title="3. 数据对象"></a>3. 数据对象</h2><p>POJO类对象<code>User</code>，这种类型的对象具有从不改变的数据。在应用程序中，数据是一次读取，此后从不更改，这是很常见的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class User &#123;</span><br><span class="line">   public final String firstName;</span><br><span class="line">   public final String lastName;</span><br><span class="line">   public User(String firstName, String lastName) &#123;</span><br><span class="line">       this.firstName = firstName;</span><br><span class="line">       this.lastName = lastName;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也可以使用JavaBean形式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class User &#123;</span><br><span class="line">   private final String firstName;</span><br><span class="line">   private final String lastName;</span><br><span class="line">   public User(String firstName, String lastName) &#123;</span><br><span class="line">       this.firstName = firstName;</span><br><span class="line">       this.lastName = lastName;</span><br><span class="line">   &#125;</span><br><span class="line">   public String getFirstName() &#123;</span><br><span class="line">       return this.firstName;</span><br><span class="line">   &#125;</span><br><span class="line">   public String getLastName() &#123;</span><br><span class="line">       return this.lastName;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-绑定数据"><a href="#4-绑定数据" class="headerlink" title="4. 绑定数据"></a>4. 绑定数据</h2><p>修改<code>Activity</code>中的<code>onCreate</code>方法，用<code>DataBindingUtil.setContentView</code>替代原来的<code>setContentView</code>方法从而实现数据绑定,创建<code>user</code>对象，通过<code>binding.setUser(user)</code>从而实现数据绑定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">private User user;</span><br><span class="line"></span><br><span class="line">@Override</span><br><span class="line">protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">    super.onCreate(savedInstanceState);</span><br><span class="line">    ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);</span><br><span class="line">    user = new User(&quot;Laxus&quot;, &quot;J&quot;);</span><br><span class="line">    binding.setUser(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>值得一提的是<code>binding.setUser(user)</code>方法是由布局中的变量名自动生成的<code>get</code> 、 <code>set</code>方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;data&gt;</span><br><span class="line">    &lt;variable name=&quot;user&quot; type=&quot;com.example.User&quot;/&gt;</span><br><span class="line">&lt;/data&gt;</span><br></pre></td></tr></table></figure>
+<p>如果我们声明了一些基础变量，ActivityMainBinding也会相应的生成<code>get</code> 、 <code>set</code>方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;data&gt;</span><br><span class="line">    &lt;variable name=&quot;firstName&quot; type=&quot;String&quot; /&gt;</span><br><span class="line">    &lt;variable name=&quot;lastName&quot; type=&quot;String&quot; /&gt;</span><br><span class="line">&lt;/data&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setFirstName(String firstName);</span><br><span class="line">setLastName(String lastName);</span><br></pre></td></tr></table></figure>
+<h2 id="5-使用数据"><a href="#5-使用数据" class="headerlink" title="5. 使用数据"></a>5. 使用数据</h2><p>现在我们就可以在xml的控件中使用数据绑定了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;TextView</span><br><span class="line">    android:layout_width=&quot;wrap_content&quot;</span><br><span class="line">    android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">    android:text=&quot;@&#123;user.lastName&#125;&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<p>查看完整代码</p>
 
       
 
@@ -253,7 +260,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/19/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/19/Data binding 入坑笔记一入门篇/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -267,7 +274,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/19/Android代码规范/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/19/编辑器--多功能输入框重构/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -276,6 +283,11 @@
       </div>
     </a>
   
+  
+    <a href="/2017/11/19/Data binding 入坑笔记二进阶篇之双向绑定/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

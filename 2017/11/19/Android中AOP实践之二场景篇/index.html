@@ -6,18 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troublesho">
+  <meta name="description" content="Android中AOP实践之二场景篇 上一篇介绍了切面编程AOP的概念，这一篇来讲讲常用的场景，在项目应用中可以分为通用场景和业务场景两种。其中通用场景我用到了日志输出、方法计时、异步操作、异常拦截、动态权限等，业务场景用到了登录验证和单次点击。整个AOP编程是基于aspect实现的，至于实现原理我想放到下一篇再讲。 ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/11/19/hello-world/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/11/19/Android中AOP实践之二场景篇/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-11-19T14:13:12.701Z">
+<meta property="og:description" content="Android中AOP实践之二场景篇 上一篇介绍了切面编程AOP的概念，这一篇来讲讲常用的场景，在项目应用中可以分为通用场景和业务场景两种。其中通用场景我用到了日志输出、方法计时、异步操作、异常拦截、动态权限等，业务场景用到了登录验证和单次点击。整个AOP编程是基于aspect实现的，至于实现原理我想放到下一篇再讲。 通用场景日志输出和方法计时 日志这里参考了hugo，JakeWharton大神通">
+<meta property="og:updated_time" content="2017-11-19T13:29:11.600Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="Android中AOP实践之二场景篇 上一篇介绍了切面编程AOP的概念，这一篇来讲讲常用的场景，在项目应用中可以分为通用场景和业务场景两种。其中通用场景我用到了日志输出、方法计时、异步操作、异常拦截、动态权限等，业务场景用到了登录验证和单次点击。整个AOP编程是基于aspect实现的，至于实现原理我想放到下一篇再讲。 通用场景日志输出和方法计时 日志这里参考了hugo，JakeWharton大神通">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -145,35 +145,29 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Android中AOP实践之二场景篇" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hello World
-    </h1>
-  
-
-        
-        <a href="/2017/11/19/hello-world/" class="archive-article-date">
-  	<time datetime="2017-11-19T14:13:12.701Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="Android中AOP实践之二场景篇"><a href="#Android中AOP实践之二场景篇" class="headerlink" title="Android中AOP实践之二场景篇"></a>Android中AOP实践之二场景篇</h1><p> 上一篇介绍了切面编程AOP的概念，这一篇来讲讲常用的场景，在项目应用中可以分为通用场景和业务场景两种。其中通用场景我用到了<strong>日志输出、方法计时、异步操作、异常拦截、动态权限</strong>等，业务场景用到了<strong>登录验证和单次点击</strong>。整个AOP编程是基于aspect实现的，至于实现原理我想放到下一篇再讲。</p>
+<h2 id="通用场景"><a href="#通用场景" class="headerlink" title="通用场景"></a>通用场景</h2><h3 id="日志输出和方法计时"><a href="#日志输出和方法计时" class="headerlink" title="日志输出和方法计时"></a>日志输出和方法计时</h3><p> 日志这里参考了<a href="https://github.com/JakeWharton/hugo" target="_blank" rel="noopener">hugo</a>，JakeWharton大神通过这个项目提供了一个很好的AOP框架。</p>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p>@DebugLog，可作用于类、构造方法及方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@DebugLog</span><br><span class="line">public class AopTestActivity extends BaseActivity &#123;</span><br><span class="line">    @DebugLog</span><br><span class="line">    public void initView() &#123;</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="核心代码"><a href="#核心代码" class="headerlink" title="核心代码"></a>核心代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  @Around(&quot;method() || constructor()&quot;)</span><br><span class="line">  public Object logAndExecute(ProceedingJoinPoint joinPoint) throws Throwable &#123;</span><br><span class="line">  	//进入方法打印日志</span><br><span class="line">      enterMethod(joinPoint);</span><br><span class="line">//过程计时</span><br><span class="line">      long startNanos = System.nanoTime();</span><br><span class="line">      Object result = joinPoint.proceed();</span><br><span class="line">      long stopNanos = System.nanoTime();</span><br><span class="line">      long lengthMillis = TimeUnit.NANOSECONDS.toMillis(stopNanos - startNanos);</span><br><span class="line">//离开方法打印日志</span><br><span class="line">      exitMethod(joinPoint, result, lengthMillis);</span><br><span class="line"></span><br><span class="line">      return result;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="异步操作"><a href="#异步操作" class="headerlink" title="异步操作"></a>异步操作</h3><p>异步操作用AOP的好处就是不用每个方法都很复杂的包裹一层异步操作了~</p>
+<h4 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@Async</span><br><span class="line">private void async() &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        Thread.sleep(10000);</span><br><span class="line">    &#125; catch (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="核心代码-1"><a href="#核心代码-1" class="headerlink" title="核心代码"></a>核心代码</h4><p>异步这里用到了rxjava，如果项目中没有引用rxjava框架可以用异步线程代替~</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@Around(&quot;execution(!synthetic * *(..)) &amp;&amp; methodAnnotated()&quot;)</span><br><span class="line">public void aroundJoinPoint(final ProceedingJoinPoint joinPoint) throws Throwable &#123;</span><br><span class="line">    Observable.create(new Observable.OnSubscribe&lt;Object&gt;() &#123;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public void call(Subscriber&lt;? super Object&gt; subscriber) &#123;</span><br><span class="line">            Looper.prepare();</span><br><span class="line">            try &#123;</span><br><span class="line">                joinPoint.proceed();</span><br><span class="line">            &#125; catch (Throwable throwable) &#123;</span><br><span class="line">                throwable.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">            Looper.loop();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">            .subscribeOn(Schedulers.io())</span><br><span class="line">            .observeOn(AndroidSchedulers.mainThread())</span><br><span class="line">            .subscribe();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###异常拦截<br>这里指的是可以用注解来暂时性解决方法中异常导致项目崩溃的问题，当然不建议大量滥用。</p>
+<h4 id="使用方法-2"><a href="#使用方法-2" class="headerlink" title="使用方法"></a>使用方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Safe</span><br><span class="line">private void ex() &#123;</span><br><span class="line">    int a = 10 / 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="核心代码-2"><a href="#核心代码-2" class="headerlink" title="核心代码"></a>核心代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@Around(&quot;execution(!synthetic * *(..)) &amp;&amp; methodAnnotated()&quot;)</span><br><span class="line">public Object aroundJoinPoint(final ProceedingJoinPoint joinPoint) throws Throwable &#123;</span><br><span class="line">    Object result = null;</span><br><span class="line">    try &#123;</span><br><span class="line">        result = joinPoint.proceed(joinPoint.getArgs());</span><br><span class="line">    &#125; catch (Throwable e) &#123;</span><br><span class="line">        LogUtils.e(getStringFromException(e));</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private static String getStringFromException(Throwable ex) &#123;</span><br><span class="line">    StringWriter errors = new StringWriter();</span><br><span class="line">    ex.printStackTrace(new PrintWriter(errors));</span><br><span class="line">    return errors.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="动态权限"><a href="#动态权限" class="headerlink" title="动态权限"></a>动态权限</h3><h4 id="使用方法-3"><a href="#使用方法-3" class="headerlink" title="使用方法"></a>使用方法</h4><h4 id="核心代码-3"><a href="#核心代码-3" class="headerlink" title="核心代码"></a>核心代码</h4><h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><h3 id="登录验证"><a href="#登录验证" class="headerlink" title="登录验证"></a>登录验证</h3><p>这是一种最常用的场景了，点击某个按钮自动检测是否登录，如果没有登录则跳转到登录页面。</p>
+<h4 id="使用方法-4"><a href="#使用方法-4" class="headerlink" title="使用方法"></a>使用方法</h4><p>这里编写的AOP注解是支持butterknife的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@CheckLogin</span><br><span class="line">@OnClick(R.id.btn_login)</span><br><span class="line">public void onViewClicked() &#123;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这个业务比较简单，就不贴实现代码了。</p>
+<h3 id="单次点击"><a href="#单次点击" class="headerlink" title="单次点击"></a>单次点击</h3><p>这个场景也比较常见，经常用户点提交性按钮时可能存在连续点击的情况，用这个注解可以及时避免。</p>
+<h4 id="使用方法-5"><a href="#使用方法-5" class="headerlink" title="使用方法"></a>使用方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@SingleClick</span><br><span class="line">@OnClick(R.id.btn_test)</span><br><span class="line">public void onViewClicked(View view) &#123;</span><br><span class="line">    btnTest.setText(&quot;clickNum &quot; + clickNum++);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="核心代码-4"><a href="#核心代码-4" class="headerlink" title="核心代码"></a>核心代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//viewtag</span><br><span class="line">private static int TIME_TAG = R.id.click_time;</span><br><span class="line">//过滤掉600毫秒内的连续点击</span><br><span class="line">private static final int MIN_CLICK_DELAY_TIME = 600;</span><br><span class="line"></span><br><span class="line">@Pointcut(&quot;execution(@com.app.base.aop.SingleClick * *(..))&quot;)</span><br><span class="line">public void methodAnnotated() &#123;&#125;</span><br><span class="line"></span><br><span class="line">@Around(&quot;methodAnnotated()&quot;)</span><br><span class="line">public void aroundJoinPoint(ProceedingJoinPoint joinPoint) throws Throwable &#123;</span><br><span class="line">    View view = null;</span><br><span class="line">    for (Object arg : joinPoint.getArgs())</span><br><span class="line">        if (arg instanceof View) view = (View) arg;</span><br><span class="line">    if (view != null) &#123;</span><br><span class="line">        Object tag = view.getTag(TIME_TAG);</span><br><span class="line">        long lastClickTime = ((tag != null) ? (long) tag : 0);</span><br><span class="line">        long currentTime = Calendar.getInstance().getTimeInMillis();</span><br><span class="line">        if (currentTime - lastClickTime &gt; MIN_CLICK_DELAY_TIME) &#123;</span><br><span class="line">            view.setTag(TIME_TAG, currentTime);</span><br><span class="line">            joinPoint.proceed();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上这些场景基本够项目的日常操作了，通过这些切片也可以节省部分重复劳动，毕竟程序员都是懒惰的嘛。<br>//todo 明天会贴上源码地址</p>
 
       
 
@@ -253,7 +247,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/19/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/19/Android中AOP实践之二场景篇/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -267,7 +261,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/19/Android代码规范/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/11/19/Android中AOP实践之三AspectJ解析篇/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -276,6 +270,11 @@
       </div>
     </a>
   
+  
+    <a href="/2017/11/19/Android中AOP实践一概念篇/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 

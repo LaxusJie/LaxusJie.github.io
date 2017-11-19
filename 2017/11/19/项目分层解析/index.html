@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hello World | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troublesho">
+  <meta name="description" content="项目分层解析 整体分层结构整体分为app和base两个层，app层作为项目的业务层，里面所有的分包都和当前业务相关。base层作为项目的框架层。业务与框架层级分离的好处：  可以让我们更专注于业务的开发 可以快速集成新的项目 方便每个项目在原有框架上做快速的更新迭代  业务层分层解析业务层内的基本分包是固定结构，因为每">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/11/19/hello-world/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/2017/11/19/项目分层解析/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:updated_time" content="2017-11-19T14:13:12.701Z">
+<meta property="og:description" content="项目分层解析 整体分层结构整体分为app和base两个层，app层作为项目的业务层，里面所有的分包都和当前业务相关。base层作为项目的框架层。业务与框架层级分离的好处：  可以让我们更专注于业务的开发 可以快速集成新的项目 方便每个项目在原有框架上做快速的更新迭代  业务层分层解析业务层内的基本分包是固定结构，因为每个项目都会有这些元素。因为富文本编辑器在互动讨论项目是重点，所以这里加上了一个e">
+<meta property="og:image" content="http://img.blog.csdn.net/20170904154405096?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-11-19T13:29:11.606Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Hexo">
+<meta name="twitter:description" content="项目分层解析 整体分层结构整体分为app和base两个层，app层作为项目的业务层，里面所有的分包都和当前业务相关。base层作为项目的框架层。业务与框架层级分离的好处：  可以让我们更专注于业务的开发 可以快速集成新的项目 方便每个项目在原有框架上做快速的更新迭代  业务层分层解析业务层内的基本分包是固定结构，因为每个项目都会有这些元素。因为富文本编辑器在互动讨论项目是重点，所以这里加上了一个e">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170904154405096?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -145,35 +147,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-项目分层解析" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Hello World
-    </h1>
-  
-
-        
-        <a href="/2017/11/19/hello-world/" class="archive-article-date">
-  	<time datetime="2017-11-19T14:13:12.701Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-19</time>
-</a>
-        
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h1 id="项目分层解析"><a href="#项目分层解析" class="headerlink" title="项目分层解析"></a>项目分层解析</h1><p><img src="http://img.blog.csdn.net/20170904154405096?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="项目分层"></p>
+<h2 id="整体分层结构"><a href="#整体分层结构" class="headerlink" title="整体分层结构"></a>整体分层结构</h2><p>整体分为app和base两个层，app层作为项目的业务层，里面所有的分包都和当前业务相关。base层作为项目的框架层。业务与框架层级分离的好处：</p>
+<ol>
+<li>可以让我们更专注于业务的开发</li>
+<li>可以快速集成新的项目</li>
+<li>方便每个项目在原有框架上做快速的更新迭代</li>
+</ol>
+<h2 id="业务层分层解析"><a href="#业务层分层解析" class="headerlink" title="业务层分层解析"></a>业务层分层解析</h2><p>业务层内的基本分包是固定结构，因为每个项目都会有这些元素。因为富文本编辑器在互动讨论项目是重点，所以这里加上了一个editor包来统一管理。下面一一来分析一下包结构。</p>
+<ul>
+<li><p>adapter包里主要盛放不同列表的适配器，里面包含单类型列表适配器、多类型列表适配器和viewpager适配器等多种。</p>
+</li>
+<li><p>customview包主要盛放与业务相关的自定义控件，其中包含自写的控件和基于开源二次编辑的控件，还有部分开源控件从业务层的build.gradle中直接引入。可以把每个项目引入和编写的自定义控件做一个总结和划分，统一存到一个git仓库中。</p>
+</li>
+<li><p>dialog包主要盛放与业务相关的弹框控件，有相同业务场景的弹框可以将业务写在内部然后提供接口调用统一返回处理。</p>
+</li>
+<li><p>entity包主要盛放业务相关的实体类，一般有两种：一种是与后端接口通讯同步的实体，另一种是处理逻辑用的自写实体。建议在系统设计阶段与后端小伙伴一起将实体继承关系梳理好，否则会导致多个大同小异实体存在的结果。</p>
+</li>
+<li><p>network包这里是业务层的network主要放两种类，一种是网络配置类用来定义接口地址和文件服务器地址，另一种是API接口类，用来记录该接口地址下的所有API。</p>
+</li>
+<li><p>receiver包主要盛放广播接收器，里面会有推送相关的接收类和自写的广播接收类。</p>
+</li>
+<li><p>utils包里主要盛放业务相关的各种工具类，比如常量类、UI工具类、图片工具类、正则工具类等。</p>
+</li>
+<li><p>base包里是业务基础类，里面包含BaseActivity、BaseFragment、MListFragment、TRecyclerView和MVP结构的三层抽象。其中BaseActivity是框架层FrameBaseActivity的子类，在这里可以写一些业务相关的统一调用：例如SharedPreferences的实例化和竖屏控制等。还有一些每个Activity都要调用的统一方法的抽象，为了保证名称一致性。BaseFragment同上。MlistFragment是继承于BaseFragment，用于统一列表fragment的控制。TRecyclerView是基于业务的下拉列表封装类，可以用它快速编写下拉列表，这个我会令起一篇详细描述。</p>
+</li>
+<li><p>business包里包含了所有的业务活动类，在里面可根据业务场景的不同具体分析处理，举例：互动讨论项目分为学生端和教师端，我可以在分别建包teabusiness作为老师业务、stubusiness作为学生业务，然后把老师学生共用的业务拆分出来做公有业务。（ps:在做互动的时候其实是先做的老师端后做的学生端，老师端有大部分公用业务，学生端里面只是把学生独有的拿了出来）</p>
+<p><strong>综上：建议在新建项目处理业务分包的时候保留固有结构，方便团队规范化统一。</strong></p>
+</li>
+</ul>
+<h2 id="框架层分层解析"><a href="#框架层分层解析" class="headerlink" title="框架层分层解析"></a>框架层分层解析</h2><p>框架层中包含适配器框架、网络框架、工具包和两个框架级别的封装类。下面一一来进行说明。</p>
+<ul>
+<li>适配器框架是基于RecycleView适配器的多功能封装，主要特点是支持下拉刷新、快速添加header、footer、多层级嵌套、多类型展示等功能。</li>
+<li>网络框架是retrofit+okhttp+rxjava结构封装而成，主要特点是简化网络请求、自动化处理返回结果、token拦截处理、上传下载监听等。</li>
+<li>utils工具包中包含Activity管理类、异常处理类、网络工具类、权限管理类等基本框架级工具类。</li>
+<li>FrameBaseActivity框架Activity类继承RxAppCompatActivity来实现网络请求时生命周期的监听管理，内部onCreateView中实现了百分比布局的计算，来适配不同尺寸的机型屏幕。其余提供了一些抽象方法供业务层基础类来调用。</li>
+</ul>
 
       
 
@@ -253,7 +267,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/19/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/11/19/项目分层解析/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -267,15 +281,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/19/Android代码规范/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
+    <a href="/2017/11/19/编辑器--多功能输入框重构/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
