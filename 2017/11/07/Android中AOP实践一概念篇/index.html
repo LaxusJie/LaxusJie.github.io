@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="Android中AOP实践一概念篇 预热在说AOP之前先来说说java最经典的OOP（面向对象编程），我们通过面向对象的封装思想把同一类事物的共性归为一类中，方便我们统一管理。比如我们会把汽车的轮子，发动机，车身喷漆都放在汽车这个类中。这样的好处是良好的封装能够减少耦合，隐藏信息实现细节。但是试想一下如果每个类中有没有">
+<meta name="description" content="预热在说AOP之前先来说说java最经典的OOP（面向对象编程），我们通过面向对象的封装思想把同一类事物的共性归为一类中，方便我们统一管理。比如我们会把汽车的轮子，发动机，车身喷漆都放在汽车这个类中。这样的好处是良好的封装能够减少耦合，隐藏信息实现细节。但是试想一下如果每个类中有没有重复调用的代码呢？比如日志输出、缓存">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android中AOP实践一概念篇">
 <meta property="og:url" content="http://yoursite.com/2017/11/07/Android中AOP实践一概念篇/index.html">
 <meta property="og:site_name" content="Laxus的海盗船">
-<meta property="og:description" content="Android中AOP实践一概念篇 预热在说AOP之前先来说说java最经典的OOP（面向对象编程），我们通过面向对象的封装思想把同一类事物的共性归为一类中，方便我们统一管理。比如我们会把汽车的轮子，发动机，车身喷漆都放在汽车这个类中。这样的好处是良好的封装能够减少耦合，隐藏信息实现细节。但是试想一下如果每个类中有没有重复调用的代码呢？比如日志输出、缓存处理。这里就需要用到AOP思想了。 什么是A">
+<meta property="og:description" content="预热在说AOP之前先来说说java最经典的OOP（面向对象编程），我们通过面向对象的封装思想把同一类事物的共性归为一类中，方便我们统一管理。比如我们会把汽车的轮子，发动机，车身喷漆都放在汽车这个类中。这样的好处是良好的封装能够减少耦合，隐藏信息实现细节。但是试想一下如果每个类中有没有重复调用的代码呢？比如日志输出、缓存处理。这里就需要用到AOP思想了。 什么是AOP编程1AOP为Aspect O">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pic1.zhimg.com/50/d3ec078b1c73fd100277ed682b575818_hd.jpg">
-<meta property="og:updated_time" content="2017-11-19T16:45:44.364Z">
+<meta property="og:updated_time" content="2017-11-21T12:40:29.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android中AOP实践一概念篇">
-<meta name="twitter:description" content="Android中AOP实践一概念篇 预热在说AOP之前先来说说java最经典的OOP（面向对象编程），我们通过面向对象的封装思想把同一类事物的共性归为一类中，方便我们统一管理。比如我们会把汽车的轮子，发动机，车身喷漆都放在汽车这个类中。这样的好处是良好的封装能够减少耦合，隐藏信息实现细节。但是试想一下如果每个类中有没有重复调用的代码呢？比如日志输出、缓存处理。这里就需要用到AOP思想了。 什么是A">
+<meta name="twitter:description" content="预热在说AOP之前先来说说java最经典的OOP（面向对象编程），我们通过面向对象的封装思想把同一类事物的共性归为一类中，方便我们统一管理。比如我们会把汽车的轮子，发动机，车身喷漆都放在汽车这个类中。这样的好处是良好的封装能够减少耦合，隐藏信息实现细节。但是试想一下如果每个类中有没有重复调用的代码呢？比如日志输出、缓存处理。这里就需要用到AOP思想了。 什么是AOP编程1AOP为Aspect O">
 <meta name="twitter:image" content="https://pic1.zhimg.com/50/d3ec078b1c73fd100277ed682b575818_hd.jpg">
 
 
@@ -351,7 +351,7 @@
       
 
       
-        <h1 id="Android中AOP实践一概念篇"><a href="#Android中AOP实践一概念篇" class="headerlink" title="Android中AOP实践一概念篇"></a>Android中AOP实践一概念篇</h1><hr>
+        <hr>
 <h2 id="预热"><a href="#预热" class="headerlink" title="预热"></a>预热</h2><pre><code>在说AOP之前先来说说java最经典的OOP（面向对象编程），我们通过面向对象的封装思想把同一类事物的共性归为一类中，方便我们统一管理。比如我们会把汽车的轮子，发动机，车身喷漆都放在汽车这个类中。这样的好处是良好的封装能够减少耦合，隐藏信息实现细节。但是试想一下如果每个类中有没有重复调用的代码呢？比如日志输出、缓存处理。这里就需要用到AOP思想了。
 </code></pre><h2 id="什么是AOP编程"><a href="#什么是AOP编程" class="headerlink" title="什么是AOP编程"></a>什么是AOP编程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">AOP为Aspect Oriented Programming的缩写，意为：面向切面编程，通过预编译方式和运行期动态代理实现程序功能的统一维护的一种技术。</span><br></pre></td></tr></table></figure>
 <p>  上面是AOP的定义，比较抽象。我们接着上面来说，如果两个类都有做缓存处理，那么我们就需要在两个类中写同样的关于缓存的代码。既然是相同代码那肯定可以做封装嘛，但我们封装一个缓存工具类然后去掉用，上面两个类又和缓存类耦合了。那么，有没有什么办法，能让我们在需要的时候，随意地加入代码呢？<br>  这种在运行时，动态地将代码切入到类的指定方法、指定位置上的编程思想就是面向切面的编程。<br>  一般而言，我们管切入到指定类指定方法的代码片段称为切面，而切入到哪些类、哪些方法则叫切入点。有了AOP，我们就可以把几个类共有的代码，抽取到一个切片中，等到需要时再切入对象中去，从而改变其原有的行为。<br>  这样看来，AOP其实只是OOP的补充而已。OOP从横向上区分出一个个的类来，而AOP则从纵向上向对象中加入特定的代码。有了AOP，OOP变得立体了。如果加上时间维度，AOP使OOP由原来的二维变为三维了，由平面变成立体了。<br>  AOP在编程历史上可以说是里程碑式的，对OOP编程是一种十分有益的补充。<br>  引用知乎上一个图作为补充说明</p>
@@ -470,7 +470,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -478,6 +478,15 @@
 
           
 
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
           
 
         </nav>
@@ -533,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Android中AOP实践一概念篇"><span class="nav-number">1.</span> <span class="nav-text">Android中AOP实践一概念篇</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#预热"><span class="nav-number">1.1.</span> <span class="nav-text">预热</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是AOP编程"><span class="nav-number">1.2.</span> <span class="nav-text">什么是AOP编程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#预热"><span class="nav-number">1.</span> <span class="nav-text">预热</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是AOP编程"><span class="nav-number">2.</span> <span class="nav-text">什么是AOP编程</span></a></li></ol></div>
             
 
           </div>
