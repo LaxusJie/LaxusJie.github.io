@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Data Binding," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="Data binding 入坑笔记一入门篇  上一篇介绍了Data binding的基础用法，你可能会想这也太基础了，只支持前置数据的绑定，一旦数据变化了UI都监听不到。不要着急，这一篇就来讲到databinding的双向绑定用法。  举个例子我们用一个输入控件EditText和一个文本控件TextView来举个栗子，">
+<meta name="keywords" content="Data Binding">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data binding 入坑笔记二进阶篇之双向绑定">
+<meta property="og:url" content="http://yoursite.com/2017/11/19/Data binding 入坑笔记二进阶篇之双向绑定/index.html">
+<meta property="og:site_name" content="Laxus的海盗船">
+<meta property="og:description" content="Data binding 入坑笔记一入门篇  上一篇介绍了Data binding的基础用法，你可能会想这也太基础了，只支持前置数据的绑定，一旦数据变化了UI都监听不到。不要着急，这一篇就来讲到databinding的双向绑定用法。  举个例子我们用一个输入控件EditText和一个文本控件TextView来举个栗子，我们想要在TextView要获取文本框内容，原始写法首先获取两个控件的对象，然">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20171119185043722?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20171119201432602?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-11-21T13:24:57.568Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Data binding 入坑笔记二进阶篇之双向绑定">
+<meta name="twitter:description" content="Data binding 入坑笔记一入门篇  上一篇介绍了Data binding的基础用法，你可能会想这也太基础了，只支持前置数据的绑定，一旦数据变化了UI都监听不到。不要着急，这一篇就来讲到databinding的双向绑定用法。  举个例子我们用一个输入控件EditText和一个文本控件TextView来举个栗子，我们想要在TextView要获取文本框内容，原始写法首先获取两个控件的对象，然">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20171119185043722?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/19/Data binding 入坑笔记二进阶篇之双向绑定/"/>
+
+
+
+
+
+  <title>Data binding 入坑笔记二进阶篇之双向绑定 | Laxus的海盗船</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Laxus的海盗船</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">android developer</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/19/Data binding 入坑笔记二进阶篇之双向绑定/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Laxus(郝捷)">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Laxus的海盗船">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Data binding 入坑笔记二进阶篇之双向绑定</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-19T00:00:00+08:00">
+                2017-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android-Data-Binding/" itemprop="url" rel="index">
+                    <span itemprop="name">Android Data Binding</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://www.jianshu.com/p/3e4cd4d951e0" target="_blank" rel="noopener"> Data binding 入坑笔记一入门篇</a></p>
+<blockquote>
+<p>上一篇介绍了Data binding的基础用法，你可能会想这也太基础了，只支持前置数据的绑定，一旦数据变化了UI都监听不到。不要着急，这一篇就来讲到databinding的双向绑定用法。</p>
+</blockquote>
+<h2 id="举个例子"><a href="#举个例子" class="headerlink" title="举个例子"></a>举个例子</h2><p>我们用一个输入控件EditText和一个文本控件TextView来举个栗子，我们想要在TextView要获取文本框内容，原始写法首先获取两个控件的对象，然后设置输入框监听对象，最后赋值给TextView做显示，算了算需要写三步呢<br><img src="http://img.blog.csdn.net/20171119185043722?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>我们来看看Data Binding的代码，只需要把对象绑定进去就好了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">public class TwowayActivity extends AppCompatActivity &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_twoway);</span><br><span class="line">        ActivityTwowayBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_twoway);</span><br><span class="line">        binding.setStudent(new Student());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;layout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;</span><br><span class="line">    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;</span><br><span class="line">    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;</span><br><span class="line">    &lt;data&gt;</span><br><span class="line">        &lt;variable</span><br><span class="line">            name=&quot;student&quot; </span><br><span class="line">            type=&quot;com.jie.databindingsimple.entity.Student&quot;/&gt;</span><br><span class="line">    &lt;/data&gt;</span><br><span class="line">    &lt;LinearLayout</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:orientation=&quot;vertical&quot;&gt;</span><br><span class="line">        &lt;EditText</span><br><span class="line">            android:layout_width=&quot;match_parent&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">            android:hint=&quot;请输入内容&quot;</span><br><span class="line">            android:text=&quot;@=&#123;student.name&#125;&quot;/&gt;</span><br><span class="line">        &lt;TextView</span><br><span class="line">            android:layout_width=&quot;match_parent&quot;</span><br><span class="line">            android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">            android:text=&quot;@&#123;student.name&#125;&quot;/&gt;</span><br><span class="line">    &lt;/LinearLayout&gt;</span><br><span class="line">&lt;/layout&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="Observable-Binding"><a href="#Observable-Binding" class="headerlink" title="Observable Binding"></a>Observable Binding</h2><p>Data Binding本身是不支持双向绑定的，我们想要实现双向绑定首先要改造一下实体类。让实体类继承<code>BaseObservable</code>，来看例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">public class Student extends BaseObservable &#123;</span><br><span class="line">    private String name;</span><br><span class="line">    private String className;</span><br><span class="line"></span><br><span class="line">    @Bindable</span><br><span class="line">    public String getName() &#123;</span><br><span class="line">        return name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bindable</span><br><span class="line">    public String getClassName() &#123;</span><br><span class="line">        return className;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setName(String name) &#123;</span><br><span class="line">        this.name = name;</span><br><span class="line">        notifyPropertyChanged(BR.name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setClassName(String className) &#123;</span><br><span class="line">        this.className = className;</span><br><span class="line">        notifyPropertyChanged(BR.className);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>BR</code>是编译阶段生成的一个类，功能与 R.java 类似，用 <code>@Bindable</code>标记过 <code>getter</code>方法会在<code>BR</code>中生成一个静态常量。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public class BR &#123;</span><br><span class="line">        public static final int _all = 0;</span><br><span class="line">        public static final int className = 1;</span><br><span class="line">        public static final int name = 2;</span><br><span class="line">        public static final int student = 3;</span><br><span class="line">        public static final int user = 4;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在<code>setter</code>方法里我们需要用<code>notifyPropertyChanged</code>方法来更新对象。</p>
+<p>还有另一种适用于POJO的写法，这种写法不需要继承<code>BaseObservable</code>，不过每个成员变量都要<code>new</code>一个<code>ObservableField</code>对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public class Teacher &#123;</span><br><span class="line">    public final ObservableField&lt;String&gt; name = new ObservableField&lt;&gt;();</span><br><span class="line">    public final ObservableField&lt;String&gt; className = new ObservableField&lt;&gt;();</span><br><span class="line">    public final ObservableInt age = new ObservableInt();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="xml写法"><a href="#xml写法" class="headerlink" title="xml写法"></a>xml写法</h2><p>如果想在输入的时候给变量赋值，则需要用到<code>@={}</code>这个操作符，<code>{}</code>里面是我们想要赋值的对象<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;EditText</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">    android:hint=&quot;请输入内容&quot;</span><br><span class="line">    android:text=&quot;@=&#123;student.name&#125;&quot;/&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h2><p><code>InverseBindingListener</code>是事件发生时触发的监听器，所有双向绑定，最后都是通过这个接口来<code>observable</code>改变的，各种监听，比如<code>TextWatcher</code>、<code>OnCheckedChange</code>，都是间接通过这个接口来通知的。在<code>ActivityTwowayBinding</code>的源码中我们可以找到这个方法片段。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// values</span><br><span class="line">// listeners</span><br><span class="line">// Inverse Binding Event Handlers</span><br><span class="line">private android.databinding.InverseBindingListener mboundView1androidTextAttrChanged = new android.databinding.InverseBindingListener() &#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void onChange() &#123;</span><br><span class="line">        // Inverse of student.name</span><br><span class="line">        //         is student.setName((java.lang.String) callbackArg_0)</span><br><span class="line">        java.lang.String callbackArg_0 = android.databinding.adapters.TextViewBindingAdapter.getTextString(mboundView1);</span><br><span class="line">        // localize variables for thread safety</span><br><span class="line">        // student</span><br><span class="line">        com.jie.databindingsimple.entity.Student student = mStudent;</span><br><span class="line">        // student.name</span><br><span class="line">        java.lang.String studentName = null;</span><br><span class="line">        // student != null</span><br><span class="line">        boolean studentJavaLangObjectNull = false;</span><br><span class="line"></span><br><span class="line">        studentJavaLangObjectNull = (student) != (null);</span><br><span class="line">        if (studentJavaLangObjectNull) &#123;</span><br><span class="line">            student.setName(((java.lang.String) (callbackArg_0)));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>我们通过<code>java.lang.String callbackArg_0 = android.databinding.adapters.TextViewBindingAdapter.getTextString(mboundView1);</code>获取到EditText上输入的值，来看看<code>getTextString</code>方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@InverseBindingAdapter(attribute = &quot;android:text&quot;, event = &quot;android:textAttrChanged&quot;)</span><br><span class="line">public static String getTextString(TextView view) &#123;</span><br><span class="line">    return view.getText().toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>InverseBindingAdapter</code>用于关联某个用于接收<code>View</code>变更的方法，有两个参数<code>attribute</code>描述和<code>event</code>事件，获取到数据后我们拿到student对象，然后给他赋值<code>student.setName(((java.lang.String) (callbackArg_0)));</code></p>
+<h2 id="属性改变监听"><a href="#属性改变监听" class="headerlink" title="属性改变监听"></a>属性改变监听</h2><p>如果有两个输入框，我们要监听输入对象的改变怎么办，如下：<br><img src="http://img.blog.csdn.net/20171119201432602?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYW50aG9ueV8z/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<p>我们可以利用<code>Observable</code>中的<code>addOnPropertyChangedCallback</code>来实现。先来看看<code>Observable</code>类，里面有添加回调、删除回调等方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">package android.databinding;</span><br><span class="line"></span><br><span class="line">public interface Observable &#123;</span><br><span class="line">    void addOnPropertyChangedCallback(Observable.OnPropertyChangedCallback var1);</span><br><span class="line"></span><br><span class="line">    void removeOnPropertyChangedCallback(Observable.OnPropertyChangedCallback var1);</span><br><span class="line"></span><br><span class="line">    public abstract static class OnPropertyChangedCallback &#123;</span><br><span class="line">        public OnPropertyChangedCallback() &#123;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public abstract void onPropertyChanged(Observable var1, int var2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>在<code>onCreate</code>中实现添加callback<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">protected void onCreate(Bundle savedInstanceState) &#123;</span><br><span class="line">    super.onCreate(savedInstanceState);</span><br><span class="line">    setContentView(R.layout.activity_twoway);</span><br><span class="line">    ActivityTwowayBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_twoway);</span><br><span class="line">    Student student = new Student();</span><br><span class="line">    binding.setStudent(student);</span><br><span class="line">    student.addOnPropertyChangedCallback(new Observable.OnPropertyChangedCallback() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void onPropertyChanged(Observable observable, int i) &#123;</span><br><span class="line">            switch (i) &#123;</span><br><span class="line">                case BR.name:</span><br><span class="line">                    Toast.makeText(TwowayActivity.this, &quot;name&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">                    break;</span><br><span class="line">                case BR.className:</span><br><span class="line">                    Toast.makeText(TwowayActivity.this, &quot;classname&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="双向绑定场景范围"><a href="#双向绑定场景范围" class="headerlink" title="双向绑定场景范围"></a>双向绑定场景范围</h2><p>目前双向绑定仅支持如text，checked，year，month，hour，rating，progress等绑定。</p>
+<p><a href="https://github.com/LaxusJie/DataBindingSimple/blob/master/app/src/main/java/com/jie/databindingsimple/TwowayActivity.java" target="_blank" rel="noopener">完整代码看这里</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Data-Binding/" rel="tag"># Data Binding</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/18/Data binding 入坑笔记一入门篇/" rel="next" title="Data binding 入坑笔记一入门篇">
+                <i class="fa fa-chevron-left"></i> Data binding 入坑笔记一入门篇
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/21/Data binding 入坑笔记三layout表达式详解/" rel="prev" title="Data binding 入坑笔记三layout表达式详解">
+                Data binding 入坑笔记三layout表达式详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Laxus(郝捷)" />
+          <p class="site-author-name" itemprop="name">Laxus(郝捷)</p>
+           
+              <p class="site-description motion-element" itemprop="description">劝君莫惜金缕衣，劝君惜取少年时</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/LaxusJie" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                    
+                      GitHub
+                    
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/6f2e312c8112" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                    
+                      简书
+                    
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#举个例子"><span class="nav-number">1.</span> <span class="nav-text">举个例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Observable-Binding"><span class="nav-number">2.</span> <span class="nav-text">Observable Binding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xml写法"><span class="nav-number">3.</span> <span class="nav-text">xml写法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理解析"><span class="nav-number">4.</span> <span class="nav-text">原理解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#属性改变监听"><span class="nav-number">5.</span> <span class="nav-text">属性改变监听</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向绑定场景范围"><span class="nav-number">6.</span> <span class="nav-text">双向绑定场景范围</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Laxus(郝捷)</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
