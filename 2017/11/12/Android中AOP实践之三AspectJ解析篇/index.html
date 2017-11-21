@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="Laxus的海盗船">
 <meta property="og:description" content="介绍AspectJ是Java的一个简单实用的面向方面的扩展。通过几个新的构造，AspectJ提供了对一系列横切关注的模块化实现的支持。 在现有的Java开发项目中采用AspectJ可能是一个简单而且增量的任务。一条路径是从开发方面开始，继续使用生产方面，然后在使用AspectJ建立经验之后再使用方面。采用也可以遵循其他途径。例如，一些开发人员将从马上使用生产方面受益。其他人可能几乎可以立即编写干净">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-21T13:32:21.542Z">
+<meta property="og:updated_time" content="2017-11-21T14:02:40.902Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android中AOP实践之三AspectJ解析篇">
 <meta name="twitter:description" content="介绍AspectJ是Java的一个简单实用的面向方面的扩展。通过几个新的构造，AspectJ提供了对一系列横切关注的模块化实现的支持。 在现有的Java开发项目中采用AspectJ可能是一个简单而且增量的任务。一条路径是从开发方面开始，继续使用生产方面，然后在使用AspectJ建立经验之后再使用方面。采用也可以遵循其他途径。例如，一些开发人员将从马上使用生产方面受益。其他人可能几乎可以立即编写干净">
@@ -376,6 +376,7 @@
 <p>在现有的Java开发项目中采用AspectJ可能是一个简单而且增量的任务。一条路径是从开发方面开始，继续使用生产方面，然后在使用AspectJ建立经验之后再使用方面。采用也可以遵循其他途径。例如，一些开发人员将从马上使用生产方面受益。其他人可能几乎可以立即编写干净的可重用方面。</p>
 <p>AspectJ支持基于名称和基于属性的横切。使用基于名称的横切的方面倾向于影响少数其他类。但是，尽管规模较小，但与普通的Java实现相比，它们通常可以消除显着的复杂性。使用基于属性的横切的方面可以具有小规模或大规模。</p>
 <p>使用AspectJ会导致横切关注的干净模块化的实现。当作为AspectJ方面编写时，横切关注的结构是明确的且易于理解的。方面也是高度模块化的，使得开发横切功能的即插即用实现成为可能。</p>
+<a id="more"></a>
 <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="Join-point-连接点"><a href="#Join-point-连接点" class="headerlink" title="Join point 连接点"></a>Join point 连接点</h2><p>是指程序中可能作为代码注入目标的特定的点，例如一个方法调用或者方法入口。<br>程序中连接点有很多，下面做一个表格一一指出：<br>| Join Points           |   定义   |                     解释 |<br>| ——————— | :—-: | ———————: |<br>| method call           |  调用方法  |      一般在执行某个方法前会先调用该方法 |<br>| method execution      |  执行方法  |        这个点是已经执行到了方法的内部 |<br>| constructor call      | 调用构造方法 |                  同调用方法 |<br>| constructor execution | 执行构造方法 |                  同执行方法 |<br>| field get             |  获取参数  |       比如获取某个变量的值，get() |<br>| field set             |  设置参数  | 比如设置某个变量的值，int num = 3 |<br>| pre-initialization    |  预初始化  |          在第一次初始化前会预初始化 |<br>| initialization        |  初始化   |             初始化类的时候会执行 |<br>| static initialization | 静态初始化  |       静态块或静态类初始化的时候会执行 |<br>| handler               |  异常处理  |                        |<br>| advice execution      |  通知执行  |                        |</p>
 <p>//这里可以用一个例子来演示一下所有的连接点</p>
 <h2 id="Pointcut-切入点"><a href="#Pointcut-切入点" class="headerlink" title="Pointcut 切入点"></a>Pointcut 切入点</h2><p>一个程序中会有很多JPoint连接点，但不一定我们都要去关注。那么我们可以选择我们需要的点来作为切入点。</p>
