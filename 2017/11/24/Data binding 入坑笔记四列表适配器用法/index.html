@@ -103,7 +103,7 @@
 <meta property="og:description" content="Data binding 入坑笔记一入门篇Data binding 入坑笔记二进阶篇之双向绑定Data binding 入坑笔记三layout表达式详解  这一篇咱们来讲讲如何在RecyclerView 中的adapter 来使用Data binding，这个比较重要，因为毕竟各种样式的列表占据了app的半壁江山，我们一会儿先来说说原生怎么使用，然后再实战运用到一个比较火的开源项目BaseRec">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-b599da134cb1943f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-11-24T14:50:39.418Z">
+<meta property="og:updated_time" content="2017-11-24T14:54:33.455Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data binding 入坑笔记四列表适配器用法">
 <meta name="twitter:description" content="Data binding 入坑笔记一入门篇Data binding 入坑笔记二进阶篇之双向绑定Data binding 入坑笔记三layout表达式详解  这一篇咱们来讲讲如何在RecyclerView 中的adapter 来使用Data binding，这个比较重要，因为毕竟各种样式的列表占据了app的半壁江山，我们一会儿先来说说原生怎么使用，然后再实战运用到一个比较火的开源项目BaseRec">
@@ -379,6 +379,7 @@
 <blockquote>
 <p>这一篇咱们来讲讲如何在<code>RecyclerView</code> 中的<code>adapter</code> 来使用Data binding，这个比较重要，因为毕竟各种样式的列表占据了app的半壁江山，我们一会儿先来说说原生怎么使用，然后再实战运用到一个比较火的开源项目<a href="https://github.com/CymChad/BaseRecyclerViewAdapterHelper" target="_blank" rel="noopener">BaseRecyclerViewAdapterHelper</a> 上。</p>
 </blockquote>
+<a id="more"></a>
 <h2 id="加载布局方式"><a href="#加载布局方式" class="headerlink" title="加载布局方式"></a>加载布局方式</h2><p>在讲适配器之前我们先来说一下<code>DataBindingUtil</code>加载布局的两种方式</p>
 <h3 id="普通加载"><a href="#普通加载" class="headerlink" title="普通加载"></a>普通加载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DataBindingUtil.setContentView(this, R.layout.activity_layout);</span><br></pre></td></tr></table></figure>
 <h3 id="动态加载"><a href="#动态加载" class="headerlink" title="动态加载"></a>动态加载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">View itemView = LayoutInflater.from(context)</span><br><span class="line">     .inflate(layoutId, viewGroup, false);</span><br><span class="line">DataBindingUtil.bind(itemView);</span><br></pre></td></tr></table></figure>
