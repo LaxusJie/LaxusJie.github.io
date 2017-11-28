@@ -94,21 +94,21 @@
 
 
 
-<meta name="description" content="目的分析和学习官方mvvm框架的设计模式和数据绑定在其中的具体用法，制作一套符合当前公司业务场景的mvvm框架。其中也分析一下数据源在项目中的设计以及框架中单元测试的实施。 设计模式MVVM框架中的ViewModel相比MVP框架中的Presenter起着类似的作用。两种框架结构的不同之处在于View分别与ViewMo">
+<meta name="description" content="目的分析和学习官方mvvm框架的设计模式和数据绑定在其中的具体用法，制作一套符合当前公司业务场景的mvvm框架。其中也分析一下数据源在项目中的设计以及框架中单元测试的实施。">
 <meta name="keywords" content="源码分析">
 <meta property="og:type" content="article">
 <meta property="og:title" content="todo-mvvm-databinding源码分析">
 <meta property="og:url" content="http://yoursite.com/2017/11/28/todo-mvvm-databinding源码分析/index.html">
 <meta property="og:site_name" content="Laxus的海盗船">
-<meta property="og:description" content="目的分析和学习官方mvvm框架的设计模式和数据绑定在其中的具体用法，制作一套符合当前公司业务场景的mvvm框架。其中也分析一下数据源在项目中的设计以及框架中单元测试的实施。 设计模式MVVM框架中的ViewModel相比MVP框架中的Presenter起着类似的作用。两种框架结构的不同之处在于View分别与ViewModel或Presenter进行通信：  当MVVM框架中数据发生变化时会影响V">
+<meta property="og:description" content="目的分析和学习官方mvvm框架的设计模式和数据绑定在其中的具体用法，制作一套符合当前公司业务场景的mvvm框架。其中也分析一下数据源在项目中的设计以及框架中单元测试的实施。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-5743287e88dc1208.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-0c4c9b1164aa9d59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-eb7dfe1c16999fe3?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-11-28T15:45:44.452Z">
+<meta property="og:updated_time" content="2017-11-28T16:11:20.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="todo-mvvm-databinding源码分析">
-<meta name="twitter:description" content="目的分析和学习官方mvvm框架的设计模式和数据绑定在其中的具体用法，制作一套符合当前公司业务场景的mvvm框架。其中也分析一下数据源在项目中的设计以及框架中单元测试的实施。 设计模式MVVM框架中的ViewModel相比MVP框架中的Presenter起着类似的作用。两种框架结构的不同之处在于View分别与ViewModel或Presenter进行通信：  当MVVM框架中数据发生变化时会影响V">
+<meta name="twitter:description" content="目的分析和学习官方mvvm框架的设计模式和数据绑定在其中的具体用法，制作一套符合当前公司业务场景的mvvm框架。其中也分析一下数据源在项目中的设计以及框架中单元测试的实施。">
 <meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2953846-5743287e88dc1208.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -378,6 +378,7 @@
       
         <p><img src="http://upload-images.jianshu.io/upload_images/2953846-5743287e88dc1208.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="penguin"></p>
 <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>分析和学习官方mvvm框架的设计模式和数据绑定在其中的具体用法，制作一套符合当前公司业务场景的mvvm框架。其中也分析一下数据源在项目中的设计以及框架中单元测试的实施。</p>
+<a id="more"></a>
 <h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><p>MVVM框架中的<code>ViewModel</code>相比MVP框架中的<code>Presenter</code>起着类似的作用。两种框架结构的不同之处在于View分别与<code>ViewModel</code>或<code>Presenter</code>进行通信：</p>
 <ul>
 <li>当MVVM框架中数据发生变化时会影响<code>ViewModel</code>的改变，<code>View</code>会自动更新库或框架。你不能直接通过<code>ViewModel</code>来修改<code>View</code>。</li>
