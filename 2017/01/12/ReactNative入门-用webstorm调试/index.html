@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Data Binding," />
+  <meta name="keywords" content="ReactNative," />
 
 
 
@@ -94,20 +94,28 @@
 
 
 
-<meta name="description" content="Data binding 入坑笔记一入门篇Data binding 入坑笔记二进阶篇之双向绑定Data binding 入坑笔记三layout表达式详解  这一篇咱们来讲讲如何在RecyclerView 中的adapter 来使用Data binding，这个比较重要，因为毕竟各种样式的列表占据了app的半壁江山，我们">
-<meta name="keywords" content="Data Binding">
+<meta name="description" content="目的之前一直用chrome调试，一个是不习惯前端调试方法，毕竟是android 出身嘛还是习惯IDE调试，还有就是源码位置总要滑到底才能找到，很麻烦。突然发现ReactNative也能用IDE调试真是喜出望外啊，将配置和调试方法记录一下。">
+<meta name="keywords" content="ReactNative">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Data binding 入坑笔记四列表适配器用法">
-<meta property="og:url" content="http://yoursite.com/2017/11/24/Data binding 入坑笔记四列表适配器用法/index.html">
+<meta property="og:title" content="ReactNative入门-用webstorm调试">
+<meta property="og:url" content="http://yoursite.com/2017/01/12/ReactNative入门-用webstorm调试/index.html">
 <meta property="og:site_name" content="Laxus的海盗船">
-<meta property="og:description" content="Data binding 入坑笔记一入门篇Data binding 入坑笔记二进阶篇之双向绑定Data binding 入坑笔记三layout表达式详解  这一篇咱们来讲讲如何在RecyclerView 中的adapter 来使用Data binding，这个比较重要，因为毕竟各种样式的列表占据了app的半壁江山，我们一会儿先来说说原生怎么使用，然后再实战运用到一个比较火的开源项目BaseRec">
+<meta property="og:description" content="目的之前一直用chrome调试，一个是不习惯前端调试方法，毕竟是android 出身嘛还是习惯IDE调试，还有就是源码位置总要滑到底才能找到，很麻烦。突然发现ReactNative也能用IDE调试真是喜出望外啊，将配置和调试方法记录一下。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-b599da134cb1943f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-11-24T14:54:33.455Z">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-8292120f7567efd7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-caafe645b93b32eb.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-f4daa84fd9ff405a.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-40293aad2af9c9b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-851755edf33d6ad6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-67c08a04e9cd882d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-9cc2a6ec5999e6d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-b8e73597ebda97b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2953846-a0de7931a73b6334.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-01-14T14:11:21.613Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Data binding 入坑笔记四列表适配器用法">
-<meta name="twitter:description" content="Data binding 入坑笔记一入门篇Data binding 入坑笔记二进阶篇之双向绑定Data binding 入坑笔记三layout表达式详解  这一篇咱们来讲讲如何在RecyclerView 中的adapter 来使用Data binding，这个比较重要，因为毕竟各种样式的列表占据了app的半壁江山，我们一会儿先来说说原生怎么使用，然后再实战运用到一个比较火的开源项目BaseRec">
-<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2953846-b599da134cb1943f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="ReactNative入门-用webstorm调试">
+<meta name="twitter:description" content="目的之前一直用chrome调试，一个是不习惯前端调试方法，毕竟是android 出身嘛还是习惯IDE调试，还有就是源码位置总要滑到底才能找到，很麻烦。突然发现ReactNative也能用IDE调试真是喜出望外啊，将配置和调试方法记录一下。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2953846-8292120f7567efd7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -136,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/24/Data binding 入坑笔记四列表适配器用法/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/01/12/ReactNative入门-用webstorm调试/"/>
 
 
 
 
 
-  <title>Data binding 入坑笔记四列表适配器用法 | Laxus的海盗船</title>
+  <title>ReactNative入门-用webstorm调试 | Laxus的海盗船</title>
   
 
 
@@ -285,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/24/Data binding 入坑笔记四列表适配器用法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/12/ReactNative入门-用webstorm调试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Laxus(郝捷)">
@@ -302,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Data binding 入坑笔记四列表适配器用法</h1>
+          <h1 class="post-title" itemprop="name headline">ReactNative入门-用webstorm调试</h1>
         
 
         <div class="post-meta">
@@ -314,8 +322,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-24T00:00:00+08:00">
-                2017-11-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-01-12T00:00:00+08:00">
+                2017-01-12
               </time>
             
 
@@ -337,8 +345,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android-Data-Binding/" itemprop="url" rel="index">
-                    <span itemprop="name">Android Data Binding</span>
+                  <a href="/categories/ReactNative/" itemprop="url" rel="index">
+                    <span itemprop="name">ReactNative</span>
                   </a>
                 </span>
 
@@ -354,7 +362,7 @@
 
           
           
-             <span id="/2017/11/24/Data binding 入坑笔记四列表适配器用法/" class="leancloud_visitors" data-flag-title="Data binding 入坑笔记四列表适配器用法">
+             <span id="/2017/01/12/ReactNative入门-用webstorm调试/" class="leancloud_visitors" data-flag-title="ReactNative入门-用webstorm调试">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -385,25 +393,45 @@
       
 
       
-        <p><img src="http://upload-images.jianshu.io/upload_images/2953846-b599da134cb1943f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iceland"></p>
-<p><a href="http://www.jianshu.com/p/3e4cd4d951e0" target="_blank" rel="noopener">Data binding 入坑笔记一入门篇</a><br><a href="http://www.jianshu.com/p/2424306f9c76" target="_blank" rel="noopener">Data binding 入坑笔记二进阶篇之双向绑定</a><br><a href="http://www.jianshu.com/p/3dfcaa0b126e" target="_blank" rel="noopener">Data binding 入坑笔记三layout表达式详解</a></p>
-<blockquote>
-<p>这一篇咱们来讲讲如何在<code>RecyclerView</code> 中的<code>adapter</code> 来使用Data binding，这个比较重要，因为毕竟各种样式的列表占据了app的半壁江山，我们一会儿先来说说原生怎么使用，然后再实战运用到一个比较火的开源项目<a href="https://github.com/CymChad/BaseRecyclerViewAdapterHelper" target="_blank" rel="noopener">BaseRecyclerViewAdapterHelper</a> 上。</p>
-</blockquote>
+        <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>之前一直用chrome调试，一个是不习惯前端调试方法，毕竟是android 出身嘛还是习惯IDE调试，还有就是源码位置总要滑到底才能找到，很麻烦。突然发现ReactNative也能用IDE调试真是喜出望外啊，将配置和调试方法记录一下。</p>
 <a id="more"></a>
-<h2 id="加载布局方式"><a href="#加载布局方式" class="headerlink" title="加载布局方式"></a>加载布局方式</h2><p>在讲适配器之前我们先来说一下<code>DataBindingUtil</code>加载布局的两种方式</p>
-<h3 id="普通加载"><a href="#普通加载" class="headerlink" title="普通加载"></a>普通加载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DataBindingUtil.setContentView(this, R.layout.activity_layout);</span><br></pre></td></tr></table></figure>
-<h3 id="动态加载"><a href="#动态加载" class="headerlink" title="动态加载"></a>动态加载</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">View itemView = LayoutInflater.from(context)</span><br><span class="line">     .inflate(layoutId, viewGroup, false);</span><br><span class="line">DataBindingUtil.bind(itemView);</span><br></pre></td></tr></table></figure>
-<p>或直接调用inflate方法加载布局</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DataBindingUtil.inflate(LayoutInflater, layoutId,</span><br><span class="line">    parent, attachToParent);</span><br></pre></td></tr></table></figure>
-<p>我们加载列表时在<code>adapter</code>中就用到了动态加载</p>
-<h2 id="原生使用方法"><a href="#原生使用方法" class="headerlink" title="原生使用方法"></a>原生使用方法</h2><p>先来看<code>ViewHolder</code>我们在构造中用<code>DataBindingUtil</code>的<code>bind</code>方法将<code>view</code>绑定，然后提供一个<code>bind</code>方法可以让每个<code>item</code>绑定实体</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public static class UserHolder extends RecyclerView.ViewHolder &#123;</span><br><span class="line">    private UserItemBinding mBinding;</span><br><span class="line"></span><br><span class="line">    public UserHolder(View itemView) &#123;</span><br><span class="line">        super(itemView);</span><br><span class="line">        mBinding = DataBindingUtil.bind(itemView);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void bind(@NonNull User user) &#123;</span><br><span class="line">        mBinding.setUser(user);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>再来看<code>adapter</code>的实现，我们现在<code>onCreateViewHolder</code>中获取<code>view</code>，然后在<code>onBindViewHolder</code> 中绑定数据，搞定</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public class UserAdapter extends RecyclerView.Adapter&lt;UserAdapter.UserHolder&gt; &#123;</span><br><span class="line"></span><br><span class="line">    @NonNull</span><br><span class="line">    private List&lt;User&gt; mUsers;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public UserHolder onCreateViewHolder(ViewGroup viewGroup, int i) &#123;</span><br><span class="line">        View itemView = LayoutInflater.from(viewGroup.getContext())</span><br><span class="line">                .inflate(R.layout.user_item, viewGroup, false);</span><br><span class="line">        return new UserHolder(itemView);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onBindViewHolder(UserHolder holder, int position) &#123;</span><br><span class="line">        holder.bind(mUsers.get(position));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public int getItemCount() &#123;</span><br><span class="line">        return mUsers.size();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="https://github.com/LaxusJie/DataBindingSimple/blob/master/app/src/main/java/com/jie/databindingsimple/UserAdapter.java" target="_blank" rel="noopener">查看源码</a></p>
-<h2 id="在开源框架中用法"><a href="#在开源框架中用法" class="headerlink" title="在开源框架中用法"></a>在开源框架中用法</h2><p>我们以<code>BaseRecyclerViewAdapterHelper</code>为例，在不改底层框架的情况下我们可以这么用，当然如果嫌每次绑定很麻烦我们可以将开源库引进来改源码，把绑定动作放到底层去</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public class DiscussAdapter extends BaseQuickAdapter&lt;DiscussEntity, BaseViewHolder&gt; &#123;</span><br><span class="line">    FragmentDiscussItemBinding binding;</span><br><span class="line"></span><br><span class="line">    public DiscussAdapter() &#123;</span><br><span class="line">        super(R.layout.fragment_discuss_item, null);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void convert(BaseViewHolder helper, DiscussEntity item) &#123;</span><br><span class="line">        binding =  DataBindingUtil.bind(helper.itemView);</span><br><span class="line">        binding.setDiscuss(item);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="IDE设置"><a href="#IDE设置" class="headerlink" title="IDE设置"></a>IDE设置</h2><p>首先配置项，点击<code>Edit Configurations</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2953846-8292120f7567efd7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="配置.png"></p>
+<p>然后配置<code>react native</code>启动项<br><img src="http://upload-images.jianshu.io/upload_images/2953846-caafe645b93b32eb.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.gif"></p>
+<p>其中有几点说明一下</p>
+<ul>
+<li><code>name</code>可以随便填可以代表应用名</li>
+<li><code>React Native package</code>这项需要选择RN的命令行工具一般在<code>~\AppData\Roaming\npm\node_modules\react-native-cli</code>这个目录</li>
+<li>如果没安装命令行可以执行<code>npm install -g yarn react-native-cli</code>进行安装</li>
+<li><code>Target platform</code>选择目标设备</li>
+<li><code>Browser</code>选项按需选择，一般开发只保留一个chrome就好了</li>
+</ul>
+<p>运行效果是这样的<br><img src="http://upload-images.jianshu.io/upload_images/2953846-f4daa84fd9ff405a.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2.gif"></p>
+<p>运行中弹出了指定的浏览器，如果想静默运行在<code>Browser</code>选项中添加<code>-headless --disable-gpu</code>代码就可以了<br><img src="http://upload-images.jianshu.io/upload_images/2953846-40293aad2af9c9b2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="3.png"></p>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p>配置完IDE启动项后，就可以愉快的debug玩耍了，这里用法和studio一样很方便android小伙伴快速上手，debugger面板左侧显示当前线程运行的方法，右侧显示的是当前变量，有本地变量和全局变量很方便啊。<br><img src="http://upload-images.jianshu.io/upload_images/2953846-851755edf33d6ad6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="4.png"></p>
+<h2 id="菜单项"><a href="#菜单项" class="headerlink" title="菜单项"></a>菜单项</h2><p><img src="http://upload-images.jianshu.io/upload_images/2953846-67c08a04e9cd882d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="5.png"></p>
+<p>打开菜单项有三种方式</p>
+<ul>
+<li>在控制台输入<code>adb shell input keyevent 82</code></li>
+<li>在模拟器上用快捷键<code>ctrl+M</code>，这个比第一种好用</li>
+<li>在手机上摇一摇（需要用力。。）</li>
+</ul>
+<p>几项常用的说明一下</p>
+<ul>
+<li>Reload 重新加载  这个和在模拟器上双击R的效果是一样的</li>
+<li>Remote JS Debugging 就是远程调试了，用启动项运行起来是默认开启状态</li>
+<li>Live Reload是全局刷新，写完代码保存一下就会自动更新</li>
+<li>Hot Reloading是局部刷新，写完代码保存一下就会自动更新</li>
+<li>Toggle Inspector 审查元素用的小工具<ul>
+<li>perf 暂时不清楚哈，有知道的请留言    </li>
+<li>Inspect 可以快速看到布局相关元素<br><img src="http://upload-images.jianshu.io/upload_images/2953846-9cc2a6ec5999e6d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="6.png"></li>
+<li>Network可以清晰地看到网络请求相关所有信息，这个太实用了<br><img src="http://upload-images.jianshu.io/upload_images/2953846-b8e73597ebda97b5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="7.png"></li>
+<li>Touchables 可以看到可点击区域<br><img src="http://upload-images.jianshu.io/upload_images/2953846-a0de7931a73b6334.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="8.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://youtrack.jetbrains.com/issue/WEB-27303" target="_blank" rel="noopener">https://youtrack.jetbrains.com/issue/WEB-27303</a></p>
+
       
     </div>
     
@@ -420,7 +448,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Data-Binding/" rel="tag"># Data Binding</a>
+            <a href="/tags/ReactNative/" rel="tag"># ReactNative</a>
           
         </div>
       
@@ -433,18 +461,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/21/Data binding 入坑笔记三layout表达式详解/" rel="next" title="Data binding 入坑笔记三layout表达式详解">
-                <i class="fa fa-chevron-left"></i> Data binding 入坑笔记三layout表达式详解
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/28/todo-mvvm-databinding源码分析/" rel="prev" title="todo-mvvm-databinding源码分析">
-                todo-mvvm-databinding源码分析 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/05/20/Android代码规范/" rel="prev" title="Android代码规范">
+                Android代码规范 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -603,7 +627,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#加载布局方式"><span class="nav-number">1.</span> <span class="nav-text">加载布局方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通加载"><span class="nav-number">1.1.</span> <span class="nav-text">普通加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态加载"><span class="nav-number">1.2.</span> <span class="nav-text">动态加载</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原生使用方法"><span class="nav-number">2.</span> <span class="nav-text">原生使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在开源框架中用法"><span class="nav-number">3.</span> <span class="nav-text">在开源框架中用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDE设置"><span class="nav-number">2.</span> <span class="nav-text">IDE设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试"><span class="nav-number">3.</span> <span class="nav-text">调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#菜单项"><span class="nav-number">4.</span> <span class="nav-text">菜单项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
